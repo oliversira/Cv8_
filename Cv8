@@ -1,0 +1,47 @@
+﻿// Cv8.cpp : Defines the entry point for the application.
+//
+
+#include "Cv8.h"
+#include "sira.h"
+
+using namespace std;
+
+int prunik(double zacatek1, double konec1, double zacatek2, double konec2, double* vysl_zacatek, double* vysl_konec) {
+    *vysl_zacatek = (zacatek1 > zacatek2) ? zacatek1 : zacatek2;
+    *vysl_konec = (konec1 < konec2) ? konec1 : konec2;
+
+    if (*vysl_zacatek <= *vysl_konec) {
+        return 1;  
+    }
+    else {
+        return 0;  
+    }
+}
+
+
+int main()
+{
+    double z1, k1, z2, k2, v1, v2;
+
+    printf("Zadaj zaciatok prveho intervalu: \n");
+    scanf("%lf", &z1);
+    printf("Zadaj koniec prveho intervalu: \n");
+    scanf("%lf", &k1);
+    printf("Zadaj zaciatok druheho intervalu: \n");
+    scanf("%lf", &z2);
+    printf("Zadaj koniec druheho intervalu: \n");
+    scanf("%lf", &k2);
+
+    int maPrunik = prunik(z1, k1, z2, k2, &v1, &v2);
+
+    if (maPrunik) {
+        printf("Prunik: (%lf, %lf)\n", v1, v2);
+    }
+    else {
+        printf("Nema prunik.\n");
+    }
+
+    return 0;
+}
+
+ 
